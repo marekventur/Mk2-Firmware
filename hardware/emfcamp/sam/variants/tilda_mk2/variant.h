@@ -40,8 +40,11 @@
 
 #include "Arduino.h"
 #ifdef __cplusplus
+// For minimal configuration exclude stuff we dont have
+#ifndef _TILDA_MINIMAL_
 #include "UARTClass.h"
 #include "USARTClass.h"
+#endif // _TILDAI_MINIMAL_
 #endif
 
 #ifdef __cplusplus
@@ -310,11 +313,13 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 
 #ifdef __cplusplus
-
+// For minimal configuration exclude stuff we dont have
+#ifndef _TILDA_MINIMAL_
 extern UARTClass Serial;
 extern USARTClass Serial1;
 extern USARTClass Serial2;
 extern USARTClass Serial3;
+#endif // _TILDA_MINIMAL_
 
 #endif
 

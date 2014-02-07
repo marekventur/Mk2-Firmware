@@ -331,6 +331,9 @@ extern const PinDescription g_APinDescription[]=
 }
 #endif
 
+// For minimal configuration exclude stuff we dont have
+#ifndef _TILDA_MINIMAL_
+
 /*
  * UART objects
  */
@@ -391,6 +394,7 @@ void serialEventRun(void)
 }
 
 // ----------------------------------------------------------------------------
+#endif // _TIDLA_MINIMAL_
 
 #ifdef __cplusplus
 extern "C" {
@@ -415,6 +419,8 @@ void init( void )
   // Initialize C library
   __libc_init_array();
 
+// For minimal configuration exclude stuff we dont have
+#ifndef _TILDA_MINIMAL_
   // Disable pull-up on every pin
   for (int i = 0; i < PINS_COUNT; i++)
 	  digitalWrite(i, LOW);
@@ -484,6 +490,7 @@ void init( void )
 
   // Initialize analogOutput module
   analogOutputInit();
+#endif // _TILDA_MINIMAL_
 }
 
 #ifdef __cplusplus
