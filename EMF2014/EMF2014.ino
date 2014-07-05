@@ -38,6 +38,7 @@
 #include <FreeRTOS_ARM.h>
 #include "EMF2014Config.h"
 #include "DebugTask.h"
+#include "RadioTask.h"
 #include "RGBTask.h"
 #include "ButtonTask.h"
 #include "FlashLightTask.h"
@@ -57,6 +58,7 @@ void setup() {
 
     // Background tasks
     debug::initializeTask();
+    radio::initializeTask();
     rgb::initializeTask();
     buttons::initializeTask();
 
